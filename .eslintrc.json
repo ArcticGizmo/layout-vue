@@ -1,6 +1,6 @@
 {
   "root": true,
-  "extends": ["plugin:vue/essential", "eslint:recommend"],
+  "extends": ["plugin:vue/essential", "eslint:recommended"],
   "globals": {
     "process": "readable"
   },

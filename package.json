@@ -1,5 +1,5 @@
 {
-  "name": "layout",
+  "name": "z2-layout",
   "version": "0.1.0",
   "dependencies": {
     "vue": "^2.6.10",
