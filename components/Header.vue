@@ -4,8 +4,7 @@
       <div 
         class="menu-btn-wrapper" 
         @click="event('click')" 
-        @mouseenter="event('enter')" 
-        @mouseleave="event('exit')">
+      >
         <i-bar color="green" :strokeWidth="2" />
       </div>
       <div class="header text">
@@ -22,10 +21,6 @@ export default {
   title: "z2Header",
   components: {
     iBar,
-  },
-  data: () => {
-    return {
-    }
   },
   methods: {
     event(eventType) {
