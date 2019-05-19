@@ -31,6 +31,8 @@ footer span {
 
 #z2-footer {
   position: absolute;
-  bottom: 0
+  bottom: 0;
+  width: 100%;
+  background-color: blue;
 }
 </style>
