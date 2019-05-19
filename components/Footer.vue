@@ -1,6 +1,6 @@
 <template>
-  <footer role="banner">
-    <div class="layout-footer-wrapper">
+  <footer id="z2-footer" role="banner">
+    <div class="z2-footer-wrapper">
       <span class="copyright">©2019-{{nowDate}}</span>
     </div>
   </footer>
@@ -12,7 +12,7 @@ export default {
   computed: {
     nowDate() {
       const now = new Date();
-      return now.getFullYear;
+      return now.getFullYear();
     },
   },
 };
@@ -20,7 +20,17 @@ export default {
 
 <style>
 footer span {
-  align: right;
+  text-align: right;
+  padding-right: 2rem;
   display: block;
+}
+
+.z2-footer-wrapper {
+
+}
+
+#z2-footer {
+  position: absolute;
+  bottom: 0
 }
 </style>
