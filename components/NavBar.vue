@@ -12,15 +12,6 @@
           >
             * {{route.name}}
           </div>
-          <!-- <route-link 
-            v-for="route in routes"
-            :key="route.path" 
-            class="nav-item" 
-            :class="showHighlight(route)"
-            :to="route.path"
-            @click="select(route)">
-              {{route.name}}
-          </route-link> -->
         </div> 
       </div>
     </transition>

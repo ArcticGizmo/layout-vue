@@ -1,7 +1,12 @@
 <template>
   <div id="layout">
-    <z2-header @click="toggleNavBar"/>
-    <z2-nav-bar :routes="routes" :show="showNavBar" />
+    <z2-header @click="openNavBar"/>
+    <z2-nav-bar 
+      v-show="showNavBar"
+      :routes="routes" 
+      @close="closeNavbar"
+      @select="selected"
+    />
     <router-view class="view"></router-view>
     <z2-footer/>
   </div>
@@ -28,28 +33,37 @@ export default {
     }
   },
   methods: {
-    toggleNavBar() {
-      this.showNavBar = !this.showNavBar;
+    closeNavbar() {
+      this.showNavBar = false;
+    },
+    openNavBar() {
+      this.showNavBar = true;
+    },
+    selected(route) {
+      console.dir(route);
     }
   }
 }
 </script>
 
 <style>
+html {
+  background-color: red;
+}
+
 body {
-  margin: 0;
+  margin: 50px;
   height: 100%;
-  min-height: 100%;
   background-color: pink;
 }
 
 #layout {
+  box-sizing: border-box;
   margin: 0;
 }
 
 #page {
   height: 100%;
-  min-height: 100%;
   width: 100%;
   margin: 0;
   background-color: grey;
