@@ -1,7 +1,8 @@
 <template>
   <div id="layout">
-    <z2-header/>
-    <z2-nav-bar :routes="routes"/>
+    <z2-header @click="toggleNavBar"/>
+    <z2-nav-bar :routes="routes" :show="showNavBar" />
+    <router-view class="view"></router-view>
     <z2-footer/>
   </div>
 </template>
@@ -21,14 +22,38 @@ export default {
   props: {
     routes: { type: Array, default: () => [] },
   },
+  data: () => {
+    return {
+      showNavBar: false,
+    }
+  },
   methods: {
-    method1() {
-      
+    toggleNavBar() {
+      this.showNavBar = !this.showNavBar;
     }
   }
 }
 </script>
 
 <style>
+body {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+  background-color: pink;
+}
 
+#layout {
+  margin: 0;
+}
+
+#page {
+  height: 100%;
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: grey;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
 </style>

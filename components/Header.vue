@@ -1,8 +1,12 @@
 <template>
-  <header role="banner">
+  <header id="z2-header" role="banner">
     <div class="layout-banner-wrapper">
-      <div class="menu-btn-wrapper">
-        <i-bar color="green" :strokeWidth="2"/>
+      <div 
+        class="menu-btn-wrapper" 
+        @click="event('click')" 
+        @mouseenter="event('enter')" 
+        @mouseleave="event('exit')">
+        <i-bar color="green" :strokeWidth="2" />
       </div>
       <div class="header text">
         <span>This is some title text</span>
@@ -23,6 +27,11 @@ export default {
     return {
     }
   },
+  methods: {
+    event(eventType) {
+      this.$emit(eventType);
+    }
+  }
 }
 </script>
 

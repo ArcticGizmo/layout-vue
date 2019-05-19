@@ -1,15 +1,15 @@
 <template>
-  <div id="nav-bar">
-    <div id="nav-bar-toggle">
-      <button @click="toggleNavBar">Open navbar</button>
-    </div>
-    <div id="nav-bar-list" v-if="showNavBar">
+  <div id="z2-nav-bar" v-if="show" :style="heightStyle">
+    <div id="nav-bar-list">
+      {{heightStyle}}
       <router-link
         class="nav-bar-item"
         v-for="route in routeLinks"
         :key="route.path"
         :to="route.path"
-      >{{route.name}}</router-link>
+      >
+        {{route.name}}
+      </router-link>
     </div>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
   name: 'z2NavBar',
   props: {
     routes: { type: Array, default: () => [] },
+    show: { type: Boolean, default: false },
   },
   data: () => {
     return {
@@ -26,6 +27,15 @@ export default {
     };
   },
   computed: {
+    heightStyle() {
+      console.dir('lol')
+      const headerHeight = document.getElementById('z2-header').getBoundingClientRect().height;
+      const footerHeight = document.getElementById('z2-footer').getBoundingClientRect().height;
+      const navHeight = window.innerHeight - headerHeight - footerHeight;
+      return {
+        height: `${navHeight}px`
+      }; 
+    },
     routeLinks() {
       // grouping will go here when enabled
 
@@ -34,13 +44,19 @@ export default {
       return displayRoutes;
     },
   },
-  methods: {
-    toggleNavBar() {
-      this.showNavBar = !this.showNavBar;
-    },
-  },
 };
 </script>
 
 <style>
+#z2-nav-bar {
+  width: 10rem;
+  height: 100%;
+  outline: magenta 1px solid;
+  float: left;
+}
+
+#nav-bar-list {
+  display: flex;
+  flex-direction: column;
+}
 </style>
